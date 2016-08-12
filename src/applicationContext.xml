@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost:3306/bbs"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.pojo.Student</value>
+				<value>com.pojo.Reply</value>
+				<value>com.pojo.Admin</value>
+				<value>com.pojo.Post</value>
+				<value>com.pojo.Board</value></list>
+		</property></bean>
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="allowCreate">
+			<value>true</value>
+		</property>
+	</bean>
+	
+	<bean id="loginService" class="com.serviceImpl.LoginServiceImpl"></bean>
+	<bean id="boardService" class="com.serviceImpl.BoardServiceImpl"></bean>
+	<bean id="postService" class="com.serviceImpl.PostServiceImpl"></bean>
+	<bean id="replyService" class="com.serviceImpl.ReplyServiceImpl"></bean>
+	<bean id="studentService" class="com.serviceImpl.StudentServiceImpl"></bean>
+	<bean id="adminService" class="com.serviceImpl.AdminServiceImpl"></bean>
+	
+	<context:annotation-config/>
+	<context:component-scan base-package="com" />
+	
+	</beans>

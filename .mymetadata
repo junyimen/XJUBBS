@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="XJUBBS"
+  id="myeclipse.1470986850089"
+  context-root="/XJUBBS"
+  j2ee-spec="6.0"
+  archive="XJUBBS.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
