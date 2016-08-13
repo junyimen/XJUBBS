@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.service.ILoginService;
 
-@Component("loginService")
+//@Component("loginService")
+@Service
 public class LoginServiceImpl implements ILoginService{
-
+	
 }

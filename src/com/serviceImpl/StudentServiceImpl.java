@@ -3,13 +3,15 @@ package com.serviceImpl;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.dao.BaseDao;
 import com.pojo.Student;
 import com.service.IStudentService;
 
 
-@Component("studentService")
+//@Component("studentService")
+@Service
 public class StudentServiceImpl implements IStudentService{
 
 	@Resource(name="dao")

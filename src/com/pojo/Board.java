@@ -68,7 +68,7 @@ public class Board implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "parentId")
 	public Board getBoard() {
 		return this.board;
@@ -124,7 +124,7 @@ public class Board implements java.io.Serializable {
 		this.posts = posts;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "board")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "board")
 	public Set<Board> getBoards() {
 		return this.boards;
 	}

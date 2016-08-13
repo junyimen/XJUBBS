@@ -15,7 +15,8 @@ import com.service.IBoardService;
 
 
 
-@Component("boardService")
+//@Component("boardService")
+@Service
 public class BoardServiceImpl implements IBoardService{
 
 	@Resource(name="dao")

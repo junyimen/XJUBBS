@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.service.IReplyService;
 
-@Component("replyService")
+//@Component("replyService")
+@Service
 public class ReplyServiceImpl implements IReplyService{
 
 }

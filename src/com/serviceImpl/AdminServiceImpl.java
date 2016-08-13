@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.service.IAdminService;
 
-@Component("adminService")
+//@Component("adminService")
+@Service
 public class AdminServiceImpl implements IAdminService{
 
 }

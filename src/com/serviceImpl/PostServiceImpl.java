@@ -17,7 +17,8 @@ import com.pojo.Student;
 import com.service.IPostService;
 
 
-@Component("postService")
+//@Component("postService")
+@Service
 public class PostServiceImpl implements IPostService{
 	@Resource(name="dao")
 	BaseDao dao;
